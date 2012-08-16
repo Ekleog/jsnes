@@ -125,6 +125,10 @@ JSNES.prototype = {
                 }
             }
             
+            // Prevent infinite loop in shell benchmark.
+            if (!this.limitFrames && cycles == 0)
+                break;
+
             for (; cycles > 0; cycles--) {
                 if(ppu.curX === ppu.spr0HitX &&
                         ppu.f_spVisibility === 1 &&
