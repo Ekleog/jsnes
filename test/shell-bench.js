@@ -19,6 +19,7 @@ load("benchmark.js");
 
 function test() {
 	var currentRepeat = -1;
+	var warmupCount = 3;
 	var repeatCount = 10;
 	var frameCount = 100; // number of frames in croomBenchmark();
 	var results = [];
@@ -33,13 +34,15 @@ function test() {
 	}
 
 	// Warm-up runs.
-	for (i = 0; i < 5; i++) {
-		benchmark();
+	for (i = 0; i < warmupCount; i++) {
+		var tempres = benchmark();
+		print("warmup: " + tempres);
 	}
 
 	// Recorded runs.
 	for (i = 0; i < repeatCount; i++) {
 		results[i] = benchmark();
+		print("result: " + results[i]);
 	}
 
 	// Output information and stuff.
