@@ -50,7 +50,6 @@ var croomBenchmark = (function() {
         });
 
         nes.loadRom(croomRom);
-        nes.setLimitFrames(false);
         nes.isRunning = true;
         
         for (i=0; i<5; i++) {
